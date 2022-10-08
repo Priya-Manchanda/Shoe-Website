@@ -11,31 +11,24 @@ function Login() {
     setData({ ...data, [input.name]: input.value });
   };
   const [error, setError] = useState("");
-  const handleChange = async (event) => {
-    event.preventDefault();
-    try {
-      const url = "http://localhost:7000/api/user/login";
-      const { data: res } = await axios.post(url, data);
-      console.log(res.message);
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.message);
-      }
+  const login = (e) => {
+    e.preventDefault();
+    const { username, password } = data
+    if( username && password){
+        axios.post("http://localhost:7000/api/user/login", data)
+        .then( res => {
+            alert("Logged In")
+            Navigate('/')
+        })
+    } else {
+        alert("invalid input")
     }
-  };
-  function handleLogin() {
-    console.log("Heelo")
-    Navigate("/");
   }
   return (
     <div>
       <h1 className="text-center Login">Login Here</h1>
       <div className="account">
-        <form className="form" onSubmit={handleChange}>
+        <form className="form">
           <input
             type="text"
             placeholder="Username"
@@ -52,13 +45,13 @@ function Login() {
           />
           {error && <div>{error}</div>}
           <div className="button_align">
-            <button className="Register" type="submit" onClick={handleLogin}>
+            <button className="Register" type="submit" onClick={login}>
               Login
             </button>
           </div>
           <div className="login">
             Don't have an account?
-            <p onClick={handleLogin}>
+            <p>
               <Link to="/account" style={{ textDecoration: "none" }}>
                 Register
               </Link>{" "}

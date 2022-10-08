@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Products from "./components/Products";
 import Login from "./components/Login";
+import Checkout from "./components/Checkout";
 import { ROUTES } from "./scripts/constants";
 function App() {
   const [cart, setCart] = useState([]);
@@ -43,8 +44,10 @@ function App() {
           <Routes>
             <Route path={ROUTES.Login.path} element={<Login />} />
           </Routes>
+          <Routes>
+            <Route path={ROUTES.Checkout.path} element={<Checkout />} />
+          </Routes>
         </main>
-
         <Footer />
       </div>
     </BrowserRouter>

@@ -1,6 +1,6 @@
 import { formatPriceToStr } from "../scripts/constants";
 import CartItem from "./CartItem";
-
+import { Link } from "react-router-dom";
 function Cart({ cart: cartItems, removeItem, setCart }) {
   function getTotalPrice() {
     const INITIAL_VALUE = { quantity: 0, price: 0, sellingPrice: 0 };
@@ -21,7 +21,6 @@ function Cart({ cart: cartItems, removeItem, setCart }) {
 
     return totalPrice.price;
   }
-
   return (
     <div>
       <div className="your-cart__container">
@@ -64,7 +63,12 @@ function Cart({ cart: cartItems, removeItem, setCart }) {
                 color: "white",
               }}
             >
-              Checkout
+              <p><Link
+                to="/Checkout"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                Checkout
+              </Link></p>
             </button>
           </div>
         </>

@@ -181,7 +181,12 @@ h2 {
 .card__container {
   padding: 0.25rem;
 }
-
+.checkout{
+  text-align: center;
+}
+.checkout1{
+  margin: 10px;
+}
 .card {
   -moz-box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.75);

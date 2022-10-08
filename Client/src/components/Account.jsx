@@ -1,40 +1,36 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import Login from "./Login";
 function Account() {
   const [data, setData] = useState({
     username: "",
     email: "",
-    Password: "",
+    password: "",
   });
   const handleinput = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
   const [error, setError] = useState("");
   const Navigate = useNavigate();
-  const handleChange = async (event) => {
-    event.preventDefault();
-    try {
-      const url = "http://localhost:7000/api/user/register";
-      const { data: res } = await axios.post(url, data);
-      Navigate("/Login");
-      console.log(res.message);
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.message);
-      }
+  const register = (e) => {
+    e.preventDefault();
+    const { username, email, password } = data;
+    if (username && email && password) {
+      axios
+        .post("http://localhost:7000/api/user/Register", data)
+        .then((res) => {
+          alert("Details Saved");
+          Navigate("/Login");
+        });
+    } else {
+      alert("invalid input");
     }
   };
   return (
     <div>
       <h1 className="text-center Login">Register Here</h1>
       <div className="account">
-        <form className="form" onSubmit={handleChange}>
+        <form className="form">
           <input
             type="text"
             placeholder="Username"
@@ -52,20 +48,19 @@ function Account() {
           <input
             type="password"
             placeholder="Password"
-            value={data.Password}
-            name="Password"
+            value={data.password}
+            name="password"
             onChange={handleinput}
           />
           {error && <div>Error</div>}
           <div className="button_align">
-            <button className="Register" type="submit">
+            <button className="Register" onClick={register}>
               Register
             </button>
           </div>
           <div className="login">
             Already have an account?
             <p>
-              {" "}
               <Link to="/Login" style={{ textDecoration: "none" }}>
                 Login
               </Link>

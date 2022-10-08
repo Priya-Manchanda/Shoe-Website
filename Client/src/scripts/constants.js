@@ -150,4 +150,5 @@ export const ROUTES = {
   products: { path: "/products", title: "Products" },
   cart: { path: "/cart", title: "Cart" },
   Login: { path: "/Login" },
+  Checkout: { path: "/Checkout" },
 };
