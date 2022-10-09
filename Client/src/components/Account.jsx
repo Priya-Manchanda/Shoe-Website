@@ -24,8 +24,18 @@ function Account() {
         });
     } else {
       alert("invalid input");
+    const { username, email, password } = data
+    if( username && email && password){
+        axios.post("http://localhost:7000/api/user/Register", data)
+        .then( res => {
+            alert("Details Saved")
+            Navigate('/Login')
+        })
+    } else {
+        alert("invalid input")
     }
-  };
+    
+}
   return (
     <div>
       <h1 className="text-center Login">Register Here</h1>
@@ -71,5 +81,6 @@ function Account() {
     </div>
   );
 }
-
+}
 export default Account;
+
