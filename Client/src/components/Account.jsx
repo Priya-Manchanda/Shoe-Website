@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import Login from "./Login";
 function Account() {
   const [data, setData] = useState({
     username: "",
@@ -14,16 +15,6 @@ function Account() {
   const Navigate = useNavigate();
   const register = (e) => {
     e.preventDefault();
-    const { username, email, password } = data;
-    if (username && email && password) {
-      axios
-        .post("http://localhost:7000/api/user/Register", data)
-        .then((res) => {
-          alert("Details Saved");
-          Navigate("/Login");
-        });
-    } else {
-      alert("invalid input");
     const { username, email, password } = data
     if( username && email && password){
         axios.post("http://localhost:7000/api/user/Register", data)
@@ -71,6 +62,7 @@ function Account() {
           <div className="login">
             Already have an account?
             <p>
+              {" "}
               <Link to="/Login" style={{ textDecoration: "none" }}>
                 Login
               </Link>
@@ -81,6 +73,5 @@ function Account() {
     </div>
   );
 }
-}
-export default Account;
 
+export default Account;

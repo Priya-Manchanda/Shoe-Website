@@ -13,17 +13,16 @@ function Login() {
   const [error, setError] = useState("");
   const login = (e) => {
     e.preventDefault();
-    const { username, password } = data
-    if( username && password){
-        axios.post("http://localhost:7000/api/user/login", data)
-        .then( res => {
-            alert("Logged In")
-            Navigate('/')
-        })
+    const { username, password } = data;
+    if (username && password) {
+      axios.post("http://localhost:7000/api/user/login", data).then((res) => {
+        alert("Logged In");
+        Navigate("/");
+      });
     } else {
-        alert("invalid input")
+      alert("invalid input");
     }
-  }
+  };
   return (
     <div>
       <h1 className="text-center Login">Login Here</h1>

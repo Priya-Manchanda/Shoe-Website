@@ -28,20 +28,6 @@ body {
 .flex-stretch {
   flex: 1 0 0;
 }
-/* .circle {
-  margin: 70px auto;
-  width: 40px;
-  height: 40px;
-  border: 5px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  border-top-color: #fff;
-  animation: spin 1s linear infinite;
-}
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-} */
 /* ##### Navbar - Start ##### */
 
 .navbar {
@@ -112,7 +98,10 @@ body {
 .button:hover {
   background-color: #b689c0;
 }
-
+.Confirm_order {
+  background-color: black;
+  width: 100%;
+}
 .button1 {
   background-color: #b25068;
   font-size: 0.75rem;
@@ -126,7 +115,11 @@ body {
   font-family: caveat;
   color: #455a64;
   font-weight: bold;
+  text-align: center;
   margin-top: 50px;
+}
+.checkout {
+  width: 100%;
 }
 .card .card-body .photo {
   border-radius: var(--border-radius-secondary);
@@ -180,12 +173,6 @@ h2 {
 
 .card__container {
   padding: 0.25rem;
-}
-.checkout{
-  text-align: center;
-}
-.checkout1{
-  margin: 10px;
 }
 .card {
   -moz-box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.75);
@@ -363,12 +350,12 @@ form input {
   display: block;
   text-align: center;
 }
-.login{
+.login {
   text-align: center;
   letter-spacing: 1px;
-  color:#455a64;
+  color: #455a64;
 }
-a{
+a {
   text-decoration: underline;
 }
 form button {
@@ -383,5 +370,8 @@ form button {
   font-size: 18px;
 }
 .button_align {
+  text-align: center;
+}
+.button_align1 {
   text-align: center;
 }
